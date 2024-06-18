@@ -28,5 +28,5 @@ jobs:
         with:
           push: true
           tags: |
-            humancorridorconsult/cloudimage:v1
-            humancorridorconsult/cloudimage:${{ steps.set_build_id.outputs.BUILD_ID }}
+            humancorridorconsult/cloudimage:latest
+            humancorridorconsult/cloudimage:${{ github.sha }}
