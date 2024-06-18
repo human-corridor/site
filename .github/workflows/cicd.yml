@@ -57,16 +57,14 @@ jobs:
 
       - name: Copy files to server
         run: |
-      
-          scp -r ./* ubuntu@54.208.116.34:/var/www/html
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          scp -i ${{ secrets.SSH_KEY }} ./* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
+        
 
       - name: SSH into Server and list copied files
         uses: appleboy/ssh-action@master
         with:
-          host: 54.208.116.34
-          username: ubuntu
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            ls /var/www/html
+            ls ${{ secrets.SERVER_PATH }}
