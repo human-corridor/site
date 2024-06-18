@@ -45,6 +45,8 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            hostnamectl
-            docker ps
+            docker rm -f $(docker ps -aq)
+            docker rmi $(docker images -q)
+            docker pull humancorridorconsult/cloudimage:${{ github.sha }}
+            docker run -d -p 8080:8080 humancorridorconsult/cloudimage:${{ github.sha }}
   
