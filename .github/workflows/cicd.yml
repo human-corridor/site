@@ -66,7 +66,7 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: 54.208.116.34
-          username: user
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           script: |
             ls /var/www/html
