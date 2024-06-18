@@ -57,7 +57,7 @@ jobs:
 
       - name: Copy files to server
         run: |
-          scp -i ${{ secrets.SSH_KEY }} ./* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
+          scp -i ${{ secrets.SSH_KEY }} $PWD ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
         
 
       - name: SSH into Server and list copied files
