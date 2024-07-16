@@ -1100,6 +1100,27 @@ section.apply-now .item p {
   transition: color 200ms ease-in-out;
   border-bottom: 1px solid #fff;
 }
+
+.eve {
+  margin: 0 150px;
+}
+
+@media screen and (min-width: 708px) {
+  .eve {
+    margin: 0 80px;
+  }
+
+  .eve ul {
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
 @media screen and (min-width: 768px) {
   .accordion-head {
     padding: 1rem;
